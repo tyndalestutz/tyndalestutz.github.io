@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    <link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <h1>{{ .Site.Title }}</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+                <li><a href="{{ .Site.BaseURL }}/about">About</a></li>
+                <li><a href="{{ .Site.BaseURL }}/publications">Publications</a></li>
+                <li><a href="{{ .Site.BaseURL }}/research">Research</a></li>
+                <li><a href="{{ .Site.BaseURL }}/software">Software</a></li>
+                <li><a href="{{ .Site.BaseURL }}/resume">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{ range .Pages }}
+        <article>
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <p>{{ .Date.Format "January 2, 2006" }}</p>
+            <p>{{ .Summary }}</p>
+            <a href="{{ .Permalink }}">Read more</a>
+        </article>
+        {{ end }}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now.Format "2006" }} {{ .Site.Author }}</p>
+        <p><a href="{{ .Site.BaseURL }}/rss.xml">RSS Feed</a></p>
+    </footer>
+</body>
+</html>
