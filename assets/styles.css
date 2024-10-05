@@ -1,0 +1,54 @@
+/* Basic layout */
+body {
+    font-family: "Inconsolata", monospace;
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+a {
+    color: #228B22; /* tree green */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
