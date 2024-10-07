@@ -1,54 +1,160 @@
 /* Basic layout */
 body {
     font-family: "Inconsolata", monospace;
-    background-color: white;
-    color: black;
-    text-align: center;
+    background-color: #fffefe;
+    color: #333333; /* Slightly gray text for body */
     margin: 0;
     padding: 0;
+    text-align: center;
+    line-height: 1.3; /* Set line spacing for body text */
 }
 
+/* Wrapper to center everything like a column */
+.container {
+    max-width: 800px; /* You can adjust this value to make the container wider or narrower */
+    margin: 0 auto;
+    padding: 0 20px; /* Keeps it centered with some space on the sides */
+}
+
+/* Header adjustments */
 header {
-    background-color: #f8f8f8;
-    padding: 20px;
+    background-color: #fffefe;
+    padding: 40px 0 10px 0; /* first adjusts top, second is bottom */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
+    font-family: 'Source Code Pro', monospace;
+    text-align: left;
+    margin: 0;
+    padding-left: 20px; /* Consistent left margin for the title */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    display: inline-block;
+    margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0;
 }
 
-a {
-    color: #167516; /* tree green */
+nav a {
+    color: #167516; /* Tree green for all links */
     text-decoration: none;
 }
 
-a:hover {
+nav a:hover {
     text-decoration: underline;
 }
 
+/* Custom separator between links */
+nav ul li::after {
+    content: "    /    "; /* 4 spaces before and after the / character */
+    color: black; /* The / stays black */
+}
+
+nav ul li:last-child::after {
+    content: ""; /* Remove trailing separator */
+}
+
+/* Divider between body and header/footer */
+hr.divider {
+    border: none;
+    border-top: 1px solid #dddddd; /* Slightly gray line */
+    margin: 10px 0; /* Controls space between the gray line and other elements */
+    width: 100vw; /* Ensures the line stretches the full page width */
+    position: relative;
+    left: calc(-50vw + 50%); /* Centers the line outside the container */
+    right: calc(-50vw + 50%);
+}
+
+/* Content styling */
 .content {
     max-width: 750px;
     margin: 40px auto;
     padding: 20px;
     text-align: left;
+    padding-left: 20px; /* Consistent left margin for the body */
+    padding-right: 20px; /* Consistent right margin for the body */
 }
 
+h2, h3 {
+    font-family: "Seconda Bold", sans-serif; /* Seconda Bold for body titles */
+    font-weight: bold;
+    color: black; /* Section titles stay black */
+}
+
+/* Ensuring all links within the content are green */
+.content a {
+    color: #167516; /* Tree green for all body links */
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Footer adjustments */
 footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: #fffefe;
     padding: 10px 0;
     font-size: 0.9rem;
+}
+
+/* Footer icons */
+.footer-icons {
+    margin-bottom: 10px;
+}
+
+.footer-icons a {
+    margin: 0 10px;
+    color: #167516;
+    text-decoration: none;
+}
+
+.footer-icons a:hover {
+    text-decoration: underline;
+}
+
+.footer-icons img {
+    width: 20px; /* Adjust icon size */
+    height: 20px;
+}
+
+footer small {
+    font-family: inherit;  /* Inherits the same font family as the text above */
+    font-size: 0.75rem;    /* Smaller size for the text */
+    color: gray;           /* Optional: makes the text subtle */
+}
+
+footer small a {
+    color: #167516;        /* Ensures the link is the same tree green color */
+    text-decoration: none; /* No underline for the link */
+}
+
+footer small a:hover {
+    text-decoration: underline;  /* Adds underline on hover */
+}
+
+/* Profile photo styling */
+.profile-photo {
+    float: right;               /* Floats the image to the right */
+    width: 150px;               /* Adjust the size of the profile image */
+    margin: 0 0 15px 15px;      /* Adds margin between the image and text (left and bottom) */
+}
+
+/* Research image styling */
+.research-image {
+    float: right;                /* Floats the image to the right */
+    width: 40%;                 /* Adjust the width of the research image */
+    max-width: 300px;           /* Optional: Sets a max width if the column gets too wide */
+    margin: 0 15px 15px 0;      /* Adds margin between the image and text (right and bottom) */
+    display: inline-block;      /* Ensures the image stays in line with the content */
 }
