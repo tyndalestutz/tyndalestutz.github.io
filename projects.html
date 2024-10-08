@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><!-- Page Title Goes Here --></title> <!-- Change title for each page -->
+    <title>Projects and Independent Research - Tyndale Stutzman</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -13,10 +13,10 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>Tyndale Stutzman</h1> <!-- Page name stays constant across all pages -->
+            <h1>Tyndale Stutzman</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">About me</a></li> <!-- Links to main pages -->
+                    <li><a href="index.html">About me</a></li>
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="misc.html">Misc.</a></li>
                 </ul>
@@ -29,37 +29,103 @@
         <!-- Main content area -->
         <div class="content">
             
-            <h2><!-- Page Header Goes Here --></h2> <!-- Main heading for each page -->
-
-            <!-- Optional image aligned right -->
-            <!-- To add a profile photo or image, use this block. Replace image source and alt text. -->
-            <img src="assets/images/profile.jpeg" alt="Profile Photo" class="profile-photo">
+            <h2>Projects and Independent Research</h2>
 
             <p>
-                <!-- Main paragraph text goes here -->
-                <!-- Add or remove content for each page as needed -->
-                This is a template for reusing across multiple pages. You can replace this text with your content, whether it’s for the Projects page, Misc page, or other sections.
+                Beyond strictly physics, I have invested time working on various computer science and optics projects. This page serves as a summary of a few of my favorite creations.
             </p>
 
-            <!-- Adding another image with caption -->
-            <!-- This section can be repeated for multiple images, simply update the img src and alt text -->
+            <!-- Section: 3D Printed Thorlabs Replicas -->
+            <h3>3D Printed Thorlabs Replicas</h3>
+            <p>
+                Since my freshman year of high school, I have slowly been building my own optics lab. What started as a Michelson-Morley interferometer made of LEGOs has evolved into an amateur optics table with a mix of Thorlabs, Newport, and various custom 3D printed and CNC-machined parts. 
+            </p>
+            <p>
+                For several years, I reached out to numerous optics companies inquiring about any damaged or returned parts, as well as finding retired startup labs willing to sell equipment for a fraction of its cost. Eventually, I decided to learn how to make my own parts. Most of the experiments I've conducted relate to fluorescence and launching fiber cables, though simply practicing alignment or measuring interference patterns has provided ample justification for fabricating my own mounting systems.
+            </p>
+            <p>
+                Below are pictures of some of the parts I built, including my own posts (cut and tapped), 3D printed post holders and kinematic mirror mounts, and some custom fiber-launching connectors.
+            </p>
+
+            <!-- 3D Printed Photos -->
             <div class="image-container">
-                <img src="assets/images/sample-image.png" alt="Image Description" class="research-image">
-                <p class="image-title"><!-- Image Caption Goes Here --></p>
+                <img src="assets/images/3d-printed-1.png" alt="3D Printed Part 1" class="research-image">
+                <p class="image-title">3D Printed Optomechanics - Part 1</p>
             </div>
-            
+
+            <div class="image-container">
+                <img src="assets/images/3d-printed-2.png" alt="3D Printed Part 2" class="research-image">
+                <p class="image-title">3D Printed Optomechanics - Part 2</p>
+            </div>
+
+            <!-- Section: RemBRanDT -->
+            <h3>RemBRanDT (Remote Base-Range Data Transformer)</h3>
             <p>
-                <!-- More content goes here -->
-                If you have more sections to add, feel free to copy-paste this structure and update the content.
+                Originally referred to as my "Not-a-bomb" project, this mobile radio computer takes inspiration from the cyberdeck community. At the beginning of 2024, I started working on the concept by printing out the blueprints of a Pelican 1200 case and laid out the various components I intended on including.
+            </p>
+            <p>
+                Despite still being a work in progress, RemBRanDT currently has functional radio and GPS capabilities. It also features a switch-connected RF I/O patch panel and a dedicated intranet router for hosting on-board archives, including all of Wikipedia in English, the entire Gutenberg online library, and select Stack Exchange threads. The primary intended use of RemBRanDT is to have an all-in-one go-box for emergency communications and archival hosting in any kind of Loss of Signal (LOS) situation.
             </p>
 
-            <h2>Contact Me</h2>
+            <!-- RemBRanDT Photos -->
+            <div class="image-container">
+                <img src="assets/images/rembrandt-1.png" alt="RemBRanDT 1" class="research-image">
+                <p class="image-title">RemBRanDT Prototype - Exterior</p>
+            </div>
+
+            <div class="image-container">
+                <img src="assets/images/rembrandt-2.png" alt="RemBRanDT 2" class="research-image">
+                <p class="image-title">RemBRanDT Prototype - Interior</p>
+            </div>
+
+            <!-- Section: GPS in an Altoids Tin -->
+            <h3>GPS in an Altoids Tin</h3>
             <p>
-                Email: <a href="mailto:tyndalestutz@gmail.com">tyndalestutz@gmail.com</a><br>
-                I typically respond within one to two days.
+                As a college student, budgeting for hobbies requires some purchases to wait. In light of this, I’ve made it several years backpacking without a proper GPS, though it’s all thanks to the use of several maps and a GPS device I built in an Altoids tin.
+            </p>
+            <p>
+                When it comes to navigation, altitude, latitude, and longitude, accompanied by a paper map, can almost completely compensate for the lack of a several-hundred-dollar GPS. And, by using a simple Raspberry Pi Pico microcontroller, the whole setup ends up costing around $20.
+            </p>
+            <p>
+                The trickiest part of this project was finding a way to accurately sample the GPS location while conserving battery. Initially, I used a very cheap 128x32 pixel screen, which limited me to three lines of text. Ultimately, thanks to the speedy fix times of the GPS module, the device can be turned off until exact coordinates and elevation are needed. With sporadic use, this allows the 300mAh battery to last for a few days without any issues.
             </p>
 
-            <p><small>Last updated: <!-- Update date for the page --> </small></p>
+            <!-- GPS Photo -->
+            <div class="image-container">
+                <img src="assets/images/gps-altoids.png" alt="GPS Altoids Tin" class="research-image">
+                <p class="image-title">GPS in an Altoids Tin</p>
+            </div>
+
+            <!-- Section: Parametrics and Chord Theory -->
+            <h3>Parametrics and Chord Theory</h3>
+            <p>
+                After experimenting with complex jazz chords while studying Fourier Analysis, various unexpected connections between the two became apparent. A couple of years ago, a friend introduced me to the world of Modular Synthesizers, which led me down the path of Modular Synth Rack software such as <a href="https://vcvrack.com/" target="_blank">VCV Rack</a>.
+            </p>
+            <p>
+                The learning curve was steep and by no means something I’d claim to have mastered, though it provided the perfect tools to study the harmonics of true chords. By "true chords," I am referring to the latter of two fundamental types of tuning: equal temperament and just intonation.
+            </p>
+            <p>
+                In almost all Western music, distances between notes are determined by a set division of one octave. Today, people mostly use 12-tone equal temperament. In this system, intervals such as a major third or a fifth are not perfectly aligned with their respective mathematical harmonic. Just intonation, however, aims to establish intervals relative to a set tone in a given chord, rather than an equal division within an octave.
+            </p>
+            <p>
+                By generating pure tones with a digital synthesizer and plotting their pi/2 offset on an oscilloscope, one can see for themselves how delicate harmonics are. Two frequencies perfectly tuned produce a still set of parametric curves, whereas the slightest difference in frequencies causes harmonic oscillation.
+            </p>
+
+            <!-- Chord Theory Photos -->
+            <div class="image-container">
+                <img src="assets/images/chord-theory-1.png" alt="Chord Theory 1" class="research-image">
+                <p class="image-title">Parametric Curves from Just Intonation - 1</p>
+            </div>
+
+            <div class="image-container">
+                <img src="assets/images/chord-theory-2.png" alt="Chord Theory 2" class="research-image">
+                <p class="image-title">Parametric Curves from Just Intonation - 2</p>
+            </div>
+
+            <div class="image-container">
+                <img src="assets/images/chord-theory-3.png" alt="Chord Theory 3" class="research-image">
+                <p class="image-title">Parametric Curves from Just Intonation - 3</p>
+            </div>
         </div>
 
         <!-- Divider line between content and footer -->
