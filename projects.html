@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon_io/favicon.ico">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 <body>
 
@@ -100,17 +104,46 @@
             <!-- Section: Parametrics and Chord Theory -->
             <h3>Parametrics and Chord Theory</h3>
             <p>
-                After experimenting with complex jazz chords while studying Fourier Analysis, various unexpected connections between the two became apparent. A couple of years ago, a friend introduced me to the world of Modular Synthesizers, which led me down the path of Modular Synth Rack software such as <a href="https://vcvrack.com/" target="_blank">VCV Rack</a>.
+                After experimenting with complex jazz chords while studying signal processing, various unexpected connections between the two became apparent. A couple of years ago, a friend introduced me to the world of Modular Synthesizers, which led me down the path of Modular Synth Rack software such as <a href="https://vcvrack.com/" target="_blank">VCV Rack</a>.
             </p>
             <p>
-                The learning curve was steep and by no means something I’d claim to have mastered, though it provided the perfect tools to study the harmonics of true chords. By "true chords," I am referring to the latter of two fundamental types of tuning: equal temperament and just intonation.
+                The learning curve is steep and by no means something I’d claim to have mastered, though it provides the perfect tools to study the harmonics of true chords. By "true chords," I am referring to the latter of two fundamental types of tuning: equal temperament and just intonation.
             </p>
             <p>
-                In almost all Western music, distances between notes are determined by a set division of one octave. Today, people mostly use 12-tone equal temperament. In this system, intervals such as a major third or a fifth are not perfectly aligned with their respective mathematical harmonic. Just intonation, however, aims to establish intervals relative to a set tone in a given chord, rather than an equal division within an octave.
+                In almost all Western music, distances between notes are determined by a set division of one octave. Today, people mostly use 12-tone equal temperament. In this system, intervals such as a major third or a fifth are not perfectly aligned with their respective mathematical harmonic ratios. Just intonation, however, aims to establish intervals relative to a set tone in a given chord, rather than an equal division within an octave.
             </p>
             <p>
-                By generating pure tones with a digital synthesizer and plotting their pi/2 offset on an oscilloscope, one can see for themselves how delicate harmonics are. Two frequencies perfectly tuned produce a still set of parametric curves, whereas the slightest difference in frequencies causes harmonic oscillation.
+                Given the sine and cosine nature of these signals produced by the synthesizer, it's natural to extend the idea to parametric equations for illustration purposes. To keep the equations cleaner, the explicit multiplication of frequencies is omitted, though each term corresponds to a harmonic ratio for a major 7th chord. The sum of each pitch can be expressed by the following parametric equations:
             </p>
+            
+            <!-- Parametric Equations -->
+            <div style="text-align: center; margin: 20px 0;">
+                \[
+                x(t) = \sin(t) + \sin\left(\frac{5}{4}t\right) + \sin\left(\frac{3}{2}t\right) + \sin\left(\frac{15}{8}t\right)
+                \]
+                \[
+                y(t) = \cos(t) + \cos\left(\frac{5}{4}t\right) + \cos\left(\frac{3}{2}t\right) + \cos\left(\frac{15}{8}t\right)
+                \]
+            </div>
+            
+            
+            <p>
+                These equations generalize over \( N \) and \( M \) tones, where each frequency \( f_i \) has its own harmonic ratio \( r_i \) and corresponding amplitudes \( A_i \) and \( B_i \) for the right and left channels, respectively.
+            </p>
+
+            <!-- Parametric Generalized Equations -->
+            <div style="text-align: center; margin: 20px 0;">
+                \[
+                R_{\text{channel}} = \sum_{i=1}^{N} A_i \sin(f_i r_i t)
+                \]
+                \[
+                L_{\text{channel}} = \sum_{i=1}^{M} B_i \cos(f_i r_i t)
+                \]
+            </div>
+            
+            <p>
+                By generating pure tones with a digital synthesizer and plotting their \(\pi/2\) offset on an oscilloscope, one can see for themselves how delicate harmonics are. Two frequencies perfectly tuned produce a still set of parametric curves, whereas the slightest difference in frequencies causes harmonic oscillation.
+            </p>            
 
             <!-- Chord Theory Photos -->
             <div class="image-container">
