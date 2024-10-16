@@ -15,6 +15,15 @@ body {
     padding: 0 20px;
 }
 
+/* Ensures this image takes correct width without being overridden */
+.wide-image {
+    display: block; /* Ensure it's a block element */
+    margin: 0 auto; /* Center the image */
+    width: 100%; /* Force image to resize within parent */
+    max-width: 100%; /* Prevents it from exceeding container width */
+    height: auto; /* Maintain aspect ratio */
+}
+
 header {
     background-color: #fffefe;
     padding: 16px 0;
@@ -165,4 +174,23 @@ footer small a:hover {
 
 .image-container + .image-container {
     margin-top: 30px;
+}
+
+.image-container-wide {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.gif-container {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.gif {
+    display: inline-block;
+    width: 49%; /* Each GIF takes up roughly half the width */
+    margin: 0 0.5%; /* Creates 10px space between the two GIFs */
+    vertical-align: top;
 }
