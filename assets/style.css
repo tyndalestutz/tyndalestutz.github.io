@@ -6,7 +6,7 @@ body {
     padding: 0;
     text-align: center;
     line-height: 1.3;
-    font-size: 1.1rem; 
+    font-size: 1.1rem;
 }
 
 .container {
@@ -182,15 +182,15 @@ footer small a:hover {
 }
 
 .gif-container {
-    display: block;
-    width: 50%;
-    text-align: center;
+    display: flex;
+    justify-content: center;  /* Align GIFs in the center */
+    flex-wrap: wrap;  /* Wrap GIFs if the screen is too narrow */
+    gap: 10px;  /* Add space between GIFs */
     margin: 20px 0;
 }
 
 .gif {
-    display: inline-block !important;
-    width: 49% !important;
-    margin: 0 0.5% !important;
-    vertical-align: top !important;
+    width: 45%;  /* Adjust GIF width to fit two side by side */
+    margin: 0;
+    vertical-align: top;
 }
