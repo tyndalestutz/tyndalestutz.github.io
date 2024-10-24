@@ -183,14 +183,14 @@ footer small a:hover {
 
 .gif-container {
     display: block;
-    width: 100%;
+    width: 50%;
     text-align: center;
     margin: 20px 0;
 }
 
 .gif {
-    display: inline-block;
-    width: 49%; /* Each GIF takes up roughly half the width */
-    margin: 0 0.5%; /* Creates 10px space between the two GIFs */
-    vertical-align: top;
+    display: inline-block !important;
+    width: 49% !important;
+    margin: 0 0.5% !important;
+    vertical-align: top !important;
 }
