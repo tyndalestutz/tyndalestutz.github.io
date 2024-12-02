@@ -194,3 +194,42 @@ footer small a:hover {
     margin: 0;
     vertical-align: top;
 }
+
+/* Right justified images with text wrapping */
+.right-justify img {
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    max-width: 300px; /* Resize as needed */
+    height: auto;
+}
+
+/* Optomechanics right justified specific image */
+.optomechanics-right-image {
+    max-width: 250px; /* Resize as needed */
+}
+
+/* RemBRanDT right justified specific images */
+.rembrandt-right-image {
+    max-width: 200px; /* Resize as needed */
+}
+
+/* GPS in an Altoids Tin right justified specific image */
+.gps-right-image {
+    max-width: 300px; /* Resize as needed */
+}
+
+/* Side-by-side images container */
+.image-pair {
+    display: flex;
+    justify-content: space-between; /* Space between images */
+    gap: 15px; /* Space between the images */
+    margin: 20px 0; /* Space above and below the pair */
+}
+
+/* Individual side-by-side images */
+.side-by-side-image {
+    flex: 1; /* Allow images to scale evenly */
+    max-width: calc(50% - 15px); /* Adjust for gap spacing */
+    height: auto;
+}
