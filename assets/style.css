@@ -202,6 +202,7 @@ img {
 
 /* Right justified images with text wrapping */
 .right-justify img {
+    margin-top: 10px;
     float: right;
     margin-left: 15px;
     margin-bottom: 10px;
