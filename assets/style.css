@@ -194,29 +194,41 @@ footer small a:hover {
     margin: 0;
     vertical-align: top;
 }
+/* General troubleshooting - global image reset */
+img {
+    max-width: 100%; /* Prevent any overflow */
+    height: auto; /* Maintain aspect ratio */
+}
 
 /* Right justified images with text wrapping */
 .right-justify img {
     float: right;
     margin-left: 15px;
     margin-bottom: 10px;
-    max-width: 300px; /* Resize as needed */
-    height: auto;
+    width: 40%; /* Adjust the size relative to the container */
+    max-width: 300px; /* Prevent overly large images */
+    height: auto; /* Maintain aspect ratio */
 }
 
 /* Optomechanics right justified specific image */
 .optomechanics-right-image {
-    max-width: 250px; /* Resize as needed */
+    width: 35%; /* Adjust as needed */
+    max-width: 250px; /* Ensure images do not exceed this size */
+    height: auto;
 }
 
 /* RemBRanDT right justified specific images */
 .rembrandt-right-image {
-    max-width: 200px; /* Resize as needed */
+    width: 30%; /* Adjust as needed */
+    max-width: 200px; /* Ensure a cap on the size */
+    height: auto;
 }
 
 /* GPS in an Altoids Tin right justified specific image */
 .gps-right-image {
-    max-width: 300px; /* Resize as needed */
+    width: 40%; /* Adjust size relative to the paragraph */
+    max-width: 300px; /* Set a maximum size */
+    height: auto;
 }
 
 /* Side-by-side images container */
@@ -225,11 +237,13 @@ footer small a:hover {
     justify-content: space-between; /* Space between images */
     gap: 15px; /* Space between the images */
     margin: 20px 0; /* Space above and below the pair */
+    align-items: center; /* Vertically align images if uneven */
 }
 
 /* Individual side-by-side images */
 .side-by-side-image {
-    flex: 1; /* Allow images to scale evenly */
-    max-width: calc(50% - 15px); /* Adjust for gap spacing */
-    height: auto;
+    flex: 1; /* Ensure images scale proportionally */
+    max-width: calc(50% - 15px); /* Limit width for side-by-side layout */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure no distortion */
 }
