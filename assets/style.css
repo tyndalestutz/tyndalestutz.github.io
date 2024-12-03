@@ -201,13 +201,16 @@ img {
 }
 
 /* Right justified images with text wrapping */
-.right-justify img {
-    margin-top: 15px;
-    float: right;
+.right-justify {
+    float: right; /* Float the container */
     margin-left: 15px;
-    margin-bottom: 10px;
-    width: 40%; /* Adjust the size relative to the container */
-    max-width: 300px; /* Prevent overly large images */
+    margin-bottom: 15px; /* Space between stacked images */
+    width: 40%; /* Adjust container width */
+}
+.right-justify img {
+    display: block; /* Ensure the image takes full width of the container */
+    width: 100%; /* Adjust size relative to container */
+    max-width: 300px; /* Limit maximum width */
     height: auto; /* Maintain aspect ratio */
 }
 
