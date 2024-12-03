@@ -204,7 +204,8 @@ img {
 .right-justify {
     float: right;
     margin-left: 15px;
-    margin-bottom: 20px; /* Space between stacked images */
+    margin-top: 20px;
+    margin-bottom: 15px; /* Space between stacked images */
     width: 40%; /* Adjust container width */
 }
 .right-justify img {
@@ -223,6 +224,7 @@ img {
 
 /* RemBRanDT right justified specific images */
 .rembrandt-right-image {
+    margin-top: 15;
     width: 30%; /* Adjust as needed */
     max-width: 200px; /* Ensure a cap on the size */
     height: auto;
