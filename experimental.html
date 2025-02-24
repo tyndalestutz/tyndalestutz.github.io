@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTV AMP Stream</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: transparent; /* Full transparency */
+            display: flex;
+            flex-direction: column; /* Stack the title and banner vertically */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            text-align: center; /* Center the text */
+        }
+
+        video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Ensure video is in the background */
+        }
+
+        h1 {
+            font-size: 5em;
+            color: #00FF00; /* Retro green */
+            text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00, 0 0 15px #00FF00;
+            margin-top: 0;
+            font-family: 'Courier New', Courier, monospace; /* Old-school font */
+            z-index: 10; /* Ensure title is in the front */
+        }
+
+        .coordinates-banner-wrapper {
+            width: 100%;
+            overflow: hidden; /* Hide anything outside the wrapper */
+            position: relative;
+            z-index: 10; /* Ensure the banner is in the front */
+        }
+
+        .coordinates-banner {
+            display: flex;
+            font-size: 1.2em;
+            color: #00FF00;
+            white-space: nowrap; /* Prevent the text from wrapping */
+            animation: scroll-coordinates 40s linear infinite; /* Slowed down animation */
+        }
+
+        .coordinates-banner .text {
+            padding: 10px;
+        }
+
+        @keyframes scroll-coordinates {
+            0% {
+                transform: translateX(0); /* Start at the left */
+            }
+            100% {
+                transform: translateX(-100%); /* Move completely off the screen to the left */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Title -->
+    <h1>EXPERIMENTAL PAGE</h1>
+
+    <!-- Coordinates Banner Wrapper -->
+    <div class="coordinates-banner-wrapper">
+        <div class="coordinates-banner">
+            <div class="text">
+                34.0522,-118.2437 40.7128,-74.0060 37.7749,-122.4194 51.5074,-0.1278 48.8566,2.3522 35.6895,139.6917 40.7306,-73.9352 34.0522,-118.2437 52.5200,13.4050 41.9028,12.4964 45.4654,9.1859 43.6532,-79.3832 36.1699,-115.1398 39.9042,116.4074 37.5665,126.9780 51.1657,10.4515 34.0522,-118.2437 40.748817,-73.985428 40.730610,-73.935242 35.6762,139.6503 48.8566,2.3522
+            </div>
+            <div class="text">
+                34.0522,-118.2437 40.7128,-74.0060 37.7749,-122.4194 51.5074,-0.1278 48.8566,2.3522 35.6895,139.6917 40.7306,-73.9352 34.0522,-118.2437 52.5200,13.4050 41.9028,12.4964 45.4654,9.1859 43.6532,-79.3832 36.1699,-115.1398 39.9042,116.4074 37.5665,126.9780 51.1657,10.4515 34.0522,-118.2437 40.748817,-73.985428 40.730610,-73.935242 35.6762,139.6503 48.8566,2.3522
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Elements -->
+    <video id="videoA" autoplay playsinline muted></video>
+    <video id="videoB" autoplay playsinline muted style="opacity: 0;"></video>
+
+    <script>
+        const baseURL = "https://archive.org/download/mtvamp-complete/AMP%23";
+        const videoIDs = Array.from({length: 22}, (_, i) => 105 + i); // [105, ..., 126]
+        let activeVideo = document.getElementById("videoA");
+        let inactiveVideo = document.getElementById("videoB");
+
+        async function playRandomSegment(videoElement) {
+            const randomVideo = videoIDs[Math.floor(Math.random() * videoIDs.length)];
+            const videoURL = `${baseURL}${randomVideo}.mp4`;
+
+            // Load video metadata to get duration
+            videoElement.src = videoURL;
+            await new Promise(resolve => videoElement.onloadedmetadata = resolve);
+            
+            const duration = videoElement.duration;
+            if (!duration || duration < 600) {
+                console.error("Video duration unavailable or too short.");
+                return;
+            }
+
+            // Select a random start time between 5 min and duration - 5 min
+            const startTime = Math.random() * (duration - 600) + 300;
+            const segmentLength = Math.random() * (12 - 6) + 6; // Min 6s, Max 12s
+
+            console.log(`Playing: ${videoURL} | Start: ${startTime.toFixed(2)}s | Length: ${segmentLength.toFixed(2)}s`);
+
+            videoElement.currentTime = startTime;
+            
+            // Ensure video plays after seeking
+            await new Promise(resolve => videoElement.onseeked = resolve);
+            videoElement.play();
+
+            return segmentLength * 1000;
+        }
+
+        async function switchVideos() {
+            const duration = await playRandomSegment(inactiveVideo);
+
+            // Fade in new video, fade out old one
+            inactiveVideo.style.opacity = 1;
+            activeVideo.style.opacity = 0;
+
+            // Swap active and inactive videos
+            [activeVideo, inactiveVideo] = [inactiveVideo, activeVideo];
+
+            // Wait for the clip to finish before switching again
+            setTimeout(switchVideos, duration - 800); // Adjusted timing for smooth transitions
+        }
+
+        // Start playing
+        switchVideos();
+    </script>
+</body>
+</html>
