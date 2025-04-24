@@ -7,6 +7,7 @@ body {
     text-align: center;
     line-height: 1.3;
     font-size: 1.1rem;
+    overflow-x: hidden;
 }
 
 .container {
@@ -31,22 +32,30 @@ header {
     align-items: center;
 }
 
-h1 {
-    font-size: 2.4rem;
-    font-family: 'Source Code Pro', monospace;
-    text-align: left;
-    margin: 0;
-    padding-left: 20px;
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.menu-toggle span {
+    height: 3px;
+    background: #333;
+    margin: 5px 0;
+    width: 25px;
+    border-radius: 2px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    gap: 10px;
 }
 
 nav ul li {
-    display: inline;
     margin: 0;
 }
 
@@ -83,6 +92,15 @@ hr.divider {
     margin: 0 auto;
     padding: 0 20px;
     text-align: left;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 2.4rem;
+    font-family: 'Source Code Pro', monospace;
+    text-align: left;
+    margin: 0;
+    padding-left: 20px;
 }
 
 h2 {
@@ -247,62 +265,44 @@ img {
     object-fit: contain;
 }
 
-/* === Mobile Optimization === */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     body {
         font-size: 1rem;
-        padding: 0 10px;
-        text-align: left;
     }
 
-    h1 {
-        font-size: 1.8rem;
-        padding-left: 10px;
-        text-align: center;
+    .menu-toggle {
+        display: flex;
     }
 
-    .container,
-    .content {
-        padding: 0 10px;
-    }
-
-    header {
+    nav ul {
+        display: none;
         flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
+        background-color: #fffefe;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    nav ul.active {
+        display: flex;
     }
 
     nav ul li {
-        display: block;
-        margin: 5px 0;
-    }
-
-    nav ul li::after {
-        content: "";
+        margin: 10px 0;
     }
 
     .profile-photo,
     .image-container,
-    .right-justify {
+    .right-justify,
+    .optomechanics-right-image,
+    .rembrandt-right-image,
+    .gps-right-image {
         float: none;
         width: 100%;
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    .right-justify img,
-    .profile-photo,
-    .image-container img {
-        max-width: 90%;
-        height: auto;
-    }
-
-    .image-container {
-        text-align: center;
-    }
-
-    .image-title {
-        font-size: 0.75rem;
+        max-width: 100%;
+        margin: 10px 0;
     }
 
     .image-pair {
@@ -314,16 +314,8 @@ img {
         max-width: 100%;
     }
 
-    .gif {
-        width: 90%;
-    }
-
-    footer {
-        font-size: 0.8rem;
-        text-align: center;
-    }
-
-    footer small {
-        font-size: 0.7rem;
+    .content,
+    .container {
+        padding: 0 10px;
     }
 }
