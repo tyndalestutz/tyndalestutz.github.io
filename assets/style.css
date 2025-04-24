@@ -31,14 +31,6 @@ header {
     align-items: center;
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 2rem;
-    color: #167516;
-    padding-right: 20px;
-    cursor: pointer;
-}
-
 h1 {
     font-size: 2.4rem;
     font-family: 'Source Code Pro', monospace;
@@ -51,7 +43,6 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
 }
 
 nav ul li {
@@ -92,8 +83,6 @@ hr.divider {
     margin: 0 auto;
     padding: 0 20px;
     text-align: left;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
 }
 
 h2 {
@@ -258,54 +247,83 @@ img {
     object-fit: contain;
 }
 
-/* MOBILE OPTIMIZATION */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: inline;
-    }
-
-    nav ul {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 20px;
-        margin-top: 10px;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    .image-container,
-    .profile-photo,
-    .gif,
-    .image-pair,
-    .right-justify {
-        float: none;
-        width: 100% !important;
-        margin: 10px 0 !important;
-        text-align: center;
-    }
-
-    .content {
+/* === Mobile Optimization === */
+@media (max-width: 768px) {
+    body {
         font-size: 1rem;
         padding: 0 10px;
+        text-align: left;
     }
 
     h1 {
         font-size: 1.8rem;
+        padding-left: 10px;
+        text-align: center;
     }
 
-    h2 {
-        font-size: 1.3rem;
+    .container,
+    .content {
+        padding: 0 10px;
     }
 
-    .math-display {
-        overflow-x: auto;
-        font-size: 0.95rem;
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    nav ul li::after {
+        content: "";
+    }
+
+    .profile-photo,
+    .image-container,
+    .right-justify {
+        float: none;
+        width: 100%;
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .right-justify img,
+    .profile-photo,
+    .image-container img {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .image-container {
+        text-align: center;
+    }
+
+    .image-title {
+        font-size: 0.75rem;
+    }
+
+    .image-pair {
+        flex-direction: column;
+        gap: 10px;
     }
 
     .side-by-side-image {
         max-width: 100%;
+    }
+
+    .gif {
+        width: 90%;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    footer small {
+        font-size: 0.7rem;
     }
 }
