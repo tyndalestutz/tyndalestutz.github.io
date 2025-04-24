@@ -7,7 +7,6 @@ body {
     text-align: center;
     line-height: 1.3;
     font-size: 1.1rem;
-    overflow-x: hidden;
 }
 
 .container {
@@ -34,17 +33,18 @@ header {
 
 .menu-toggle {
     display: none;
-    flex-direction: column;
+    font-size: 2rem;
+    color: #167516;
+    padding-right: 20px;
     cursor: pointer;
-    margin-right: 20px;
 }
 
-.menu-toggle span {
-    height: 3px;
-    background: #333;
-    margin: 5px 0;
-    width: 25px;
-    border-radius: 2px;
+h1 {
+    font-size: 2.4rem;
+    font-family: 'Source Code Pro', monospace;
+    text-align: left;
+    margin: 0;
+    padding-left: 20px;
 }
 
 nav ul {
@@ -52,10 +52,10 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 10px;
 }
 
 nav ul li {
+    display: inline;
     margin: 0;
 }
 
@@ -92,15 +92,8 @@ hr.divider {
     margin: 0 auto;
     padding: 0 20px;
     text-align: left;
-    overflow-x: hidden;
-}
-
-h1 {
-    font-size: 2.4rem;
-    font-family: 'Source Code Pro', monospace;
-    text-align: left;
-    margin: 0;
-    padding-left: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 h2 {
@@ -265,57 +258,54 @@ img {
     object-fit: contain;
 }
 
+/* MOBILE OPTIMIZATION */
 @media screen and (max-width: 768px) {
-    body {
-        font-size: 1rem;
-    }
-
     .menu-toggle {
-        display: flex;
+        display: inline;
     }
 
     nav ul {
         display: none;
         flex-direction: column;
-        background-color: #fffefe;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        width: 200px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        align-items: flex-start;
+        padding-left: 20px;
+        margin-top: 10px;
     }
 
     nav ul.active {
         display: flex;
     }
 
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    .profile-photo,
     .image-container,
-    .right-justify,
-    .optomechanics-right-image,
-    .rembrandt-right-image,
-    .gps-right-image {
+    .profile-photo,
+    .gif,
+    .image-pair,
+    .right-justify {
         float: none;
-        width: 100%;
-        max-width: 100%;
-        margin: 10px 0;
+        width: 100% !important;
+        margin: 10px 0 !important;
+        text-align: center;
     }
 
-    .image-pair {
-        flex-direction: column;
-        gap: 10px;
+    .content {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .math-display {
+        overflow-x: auto;
+        font-size: 0.95rem;
     }
 
     .side-by-side-image {
         max-width: 100%;
-    }
-
-    .content,
-    .container {
-        padding: 0 10px;
     }
 }
