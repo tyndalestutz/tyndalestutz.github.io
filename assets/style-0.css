@@ -15,12 +15,13 @@ body {
     padding: 0 20px;
 }
 
+/* Ensures this image takes correct width without being overridden */
 .wide-image {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    display: block; /* Ensure it's a block element */
+    margin: 0 auto; /* Center the image */
+    width: 100%; /* Force image to resize within parent */
+    max-width: 100%; /* Prevents it from exceeding container width */
+    height: auto; /* Maintain aspect ratio */
 }
 
 header {
@@ -182,148 +183,73 @@ footer small a:hover {
 
 .gif-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    justify-content: center;  /* Align GIFs in the center */
+    flex-wrap: wrap;  /* Wrap GIFs if the screen is too narrow */
+    gap: 10px;  /* Add space between GIFs */
     margin: 20px 0;
 }
 
 .gif {
-    width: 45%;
+    width: 45%;  /* Adjust GIF width to fit two side by side */
     margin: 0;
     vertical-align: top;
 }
-
+/* General troubleshooting - global image reset */
 img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* Prevent any overflow */
+    height: auto; /* Maintain aspect ratio */
 }
 
+/* Right justified images with text wrapping */
 .right-justify {
     float: right;
     margin-left: 15px;
     margin-top: 20px;
-    margin-bottom: 15px;
-    width: 40%;
+    margin-bottom: 15px; /* Space between stacked images */
+    width: 40%; /* Adjust container width */
 }
 .right-justify img {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    display: block; /* Ensure block-level stacking */
+    width: 100%; /* Adjust size relative to container */
+    max-width: 300px; /* Limit maximum width */
+    height: auto; /* Maintain aspect ratio */
 }
 
+/* Optomechanics right justified specific image */
 .optomechanics-right-image {
-    width: 35%;
-    max-width: 250px;
+    width: 35%; /* Adjust as needed */
+    max-width: 250px; /* Ensure images do not exceed this size */
     height: auto;
 }
 
+/* RemBRanDT right justified specific images */
 .rembrandt-right-image {
-    margin-top: 15px;
-    width: 30%;
-    max-width: 200px;
+    margin-top: 15;
+    width: 30%; /* Adjust as needed */
+    max-width: 200px; /* Ensure a cap on the size */
     height: auto;
 }
 
+/* GPS in an Altoids Tin right justified specific image */
 .gps-right-image {
-    width: 40%;
-    max-width: 300px;
+    width: 40%; /* Adjust size relative to the paragraph */
+    max-width: 300px; /* Set a maximum size */
     height: auto;
 }
 
+/* Side-by-side images container */
 .image-pair {
     display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin: 20px 0;
-    align-items: center;
+    justify-content: space-between; /* Space between images */
+    gap: 15px; /* Space between the images */
+    margin: 20px 0; /* Space above and below the pair */
+    align-items: center; /* Vertically align images if uneven */
 }
 
+/* Individual side-by-side images */
 .side-by-side-image {
-    flex: 1;
-    max-width: calc(50% - 15px);
-    height: auto;
-    object-fit: contain;
-}
-
-/* === Mobile Optimization === */
-@media (max-width: 768px) {
-    body {
-        font-size: 1rem;
-        padding: 0 10px;
-        text-align: left;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-        padding-left: 10px;
-        text-align: center;
-    }
-
-    .container,
-    .content {
-        padding: 0 10px;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 5px 0;
-    }
-
-    nav ul li::after {
-        content: "";
-    }
-
-    .profile-photo,
-    .image-container,
-    .right-justify {
-        float: none;
-        width: 100%;
-        margin: 15px 0;
-        text-align: center;
-    }
-
-    .right-justify img,
-    .profile-photo,
-    .image-container img {
-        max-width: 90%;
-        height: auto;
-    }
-
-    .image-container {
-        text-align: center;
-    }
-
-    .image-title {
-        font-size: 0.75rem;
-    }
-
-    .image-pair {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .side-by-side-image {
-        max-width: 100%;
-    }
-
-    .gif {
-        width: 90%;
-    }
-
-    footer {
-        font-size: 0.8rem;
-        text-align: center;
-    }
-
-    footer small {
-        font-size: 0.7rem;
-    }
+    flex: 1; /* Ensure images scale proportionally */
+    max-width: calc(50% - 15px); /* Limit width for side-by-side layout */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure no distortion */
 }
