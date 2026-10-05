@@ -47,7 +47,7 @@
             <h2>Research and Independent Projects</h2>
             
             <p>
-                Beyond strictly physics, I have invested time working on various computer science, optics, and other miscellaneous projects. This page serves as a summary of a few things I've been working on.
+                Outside of my research, I've invested time tinkering with optics, electronics, fabrication, and various other projects. This page is a collection of a few things I've been working on.
             </p>
 
             <h3>Free-Space Optical Testbed</h3>
@@ -59,7 +59,7 @@
             </p>
 
             <p>
-                Currently, the experimental system is primarily structured around a hybrid Mach-Zehnder architecture, using piezoelectric mirrors and EOMs for FPGA-controlled phase modulation. By mapping individual actuator phases to angles on the Poincaré sphere, arbitrary polarization states can be generated and stabilized.
+                Currently, the experimental system is primarily structured around a hybrid Mach-Zehnder architecture, using piezoelectric mirrors and EOMs for FPGA-controlled phase modulation. By mapping individual actuator phases to angles on the Poincaré sphere, arbitrary polarization states can be generated and stabilized, with ongoing work focused on active stabilization.
             </p>
 
             <p>
@@ -98,19 +98,23 @@
             <!-- RemBRanDT Section -->
             <h3>RemBRanDT (Remote Base-Range Data Transformer)</h3>
             <p>
-                Originally referred to as my "Not-a-bomb" project (for visually obvious reasons), this project takes inspiration from the cyberdeck community.
+                Originally referred to as my "Not-a-bomb" project (for visually obvious reasons), RemBRanDT takes a lot of inspiration from the cyberdeck community.
             </p>
+
             <div class="right-justify">
                 <img src="assets/images/rembrandt-1.jpg" alt="RemBRanDT 1" class="rembrandt-right-image">
             </div>
+
             <p>
-                RemBRanDT is a multifunctional mobile radio computer, designed to provide reliable communication and data hosting in environments where connectivity is limited or entirely absent. This device combines radio, GPS, and archival storage in a classic Pelican 1200 case. Its primary purpose is to act as a standalone emergency communications hub, capable of bridging local devices, hosting essential information, and enabling rapid deployment in critical situations. With built-in RF capabilities, the device can operate as both a transmitter and receiver, facilitating communication across multiple frequencies (1MHz-6GHz, thanks to the HackRF). Additionally, the onboard GPS module ensures accurate location tracking, while the device's intranet router hosts extensive offline archives, including a full copy of English Wikipedia, the Gutenberg library, and curated technical resources (such as select stackexchange communities). 
+                It's essentially a portable radio computer built into a Pelican 1200 case, with a HackRF, GPS, local networking, and a pile of offline data. The idea was to make something useful when internet or cell service isn't available: it can send and receive radio, host a small local network, and carry offline copies of things like Wikipedia, Project Gutenberg, and a handful of technical references.
             </p>
+
             <div class="right-justify">
                 <img src="assets/images/rembrandt-2.jpeg" alt="RemBRanDT 2" class="rembrandt-right-image">
-            </div>                
+            </div>
+
             <p>
-                Despite several functioning features, RemBRanDT is still a work in progress. Modifications that I plan to make in the future include a laser-cut front panel (rather than hand-cut acryllic), even more batteries, and a robust GUI. Currently I am developing a custom UI for RemBRanDT that is designed to be straightforward and user friendly. Further, I plan on integrating more radio protocol capabilities such as LoRa, APRS, JS8Call, and D-STAR. As I make more progress on the software front, I'll eventually host all my code and CAD files here.
+                RemBRanDT is still very much a work in progress. I'd eventually like to replace the hand-cut acrylic with a proper front panel, add more battery capacity, finish the custom UI, and experiment with protocols like LoRa, APRS, JS8Call, and D-STAR.
             </p>
 
             <div class="image-pair">
@@ -121,51 +125,16 @@
             <!-- Section: Parametrics and Chord Theory -->
             <h3>Parametrics and Chord Theory</h3>
             <p>
-                After experimenting with complex jazz chords while studying signal processing, various unexpected connections between the two became apparent. A couple of years ago, a friend introduced me to the world of Modular Synthesizers, which led me down the path of Modular Synth Rack software such as <a href="https://vcvrack.com/" target="_blank">VCV Rack</a>.
-            </p>
-            <p>
-                The learning curve is steep and by no means something I’d claim to have mastered, though it provides the perfect tools to study the harmonics of true chords. By "true chords," I am referring to the latter of two fundamental types of tuning: equal temperament and just intonation.
+                While experimenting with jazz chords and studying signal processing, I became interested in the connection between musical harmony and frequency ratios. A couple of years ago, a friend introduced me to the world of modular synthesizers, which led me down the path of Modular Synth Rack software such as <a href="https://vcvrack.com/" target="_blank">VCV Rack</a>.
             </p>
 
             <div class="image-container-wide">
                 <img src="assets/images/vcv-M7-screen.png" alt="VCV Rack Major 7th Chord" class="wide-image">
             </div>
-
-            <p>
-                In almost all Western music, distances between notes are determined by a set division of one octave. Today, people mostly use 12-tone equal temperament. In this system, intervals such as a major third or a fifth are not perfectly aligned with their respective mathematical harmonic ratios. Just intonation, however, aims to establish intervals relative to a set tone in a given chord, rather than an equal division within an octave.
-            </p>
-            <p>
-                Given the sine and cosine nature of these signals produced by the synthesizer, it's natural to extend the idea to parametric equations for illustration purposes. To keep the equations cleaner, the explicit multiplication of frequencies is omitted, though each term corresponds to a harmonic ratio for a major 7th chord. The sum of each pitch can be expressed by the following parametric equations:
-            </p>
-            
-            <!-- Parametric Equations -->
-            <div style="text-align: center; margin: 20px 0;">
-                \[
-                x(t) = \sin(t) + \sin\left(\frac{5}{4}t\right) + \sin\left(\frac{3}{2}t\right) + \sin\left(\frac{15}{8}t\right)
-                \]
-                \[
-                y(t) = \cos(t) + \cos\left(\frac{5}{4}t\right) + \cos\left(\frac{3}{2}t\right) + \cos\left(\frac{15}{8}t\right)
-                \]
-            </div>
-            
             
             <p>
-                These equations generalize over \( N \) and \( M \) tones, where each frequency \( f_i \) has its own harmonic ratio \( r_i \) and corresponding amplitudes \( A_i \) and \( B_i \) for the right and left channels, respectively.
-            </p>
-
-            <!-- Parametric Generalized Equations -->
-            <div style="text-align: center; margin: 20px 0;">
-                \[
-                R_{\text{channel}} = \sum_{i=1}^{N} A_i \sin(f_i r_i t)
-                \]
-                \[
-                L_{\text{channel}} = \sum_{i=1}^{M} B_i \cos(f_i r_i t)
-                \]
-            </div>
-            
-            <p>
-                By generating pure tones with a digital synthesizer and plotting their \(\pi/2\) offset on an oscilloscope, one can see for themselves how delicate harmonics are. Two frequencies perfectly tuned produce a still set of parametric curves, whereas the slightest difference in frequencies causes harmonic oscillation.
-            </p>            
+                By generating pure tones with a digital synthesizer and plotting them parametrically on an oscilloscope, harmonic relationships become directly visible. Below, a just-intoned major seventh chord is constructed from the ratios \(1:5/4:3/2:15/8\). Perfectly tuned harmonic ratios produce a stationary parametric curve, while slight detuning causes the figure to oscillate, illuminating the delicacy of just intonation. 
+            </p>          
             <div class="gif-container">
                 <img src="assets/images/M7-parametric-boomerang-ezgif.com-resize.gif" alt="M7 Boomerang Parametric GIF" class="gif">
                 <img src="assets/images/M7-full-parametric-resized-ezgif.com-resize.gif" alt="M7 Full Parametric GIF" class="gif">
@@ -174,18 +143,17 @@
             <!-- Section: GPS in an Altoids Tin -->
             <h3>GPS in an Altoids Tin</h3>
             <p>
-                As a college student, budgeting for hobbies requires some purchases to wait.
+                With a hankering to make some kind of Altoids tin device and a need for a GPS, a scrappy little navigation tool became a fun use of a few spare parts.  
                 <span class="right-justify">
                     <img src="assets/images/gps-altoids.jpeg" alt="GPS Altoids Tin" class="gps-right-image">
                 </span>
             </p>
             <p>
-                When it comes to navigation, altitude, latitude, and longitude, accompanied by a paper map, can almost completely compensate for the lack of a several-hundred-dollar GPS.
+                When it comes to navigation, a paper map combined with elevation, latitude, and longitude can decently compensate for the lack of a several-hundred-dollar GPS.
             </p>
             <p>
-                The trickiest part of this project was finding a way to accurately sample the GPS location while conserving battery. Initially, I used a very cheap 128x32 pixel screen, which limited me to three lines of text. Ultimately, thanks to the speedy fix times of the GPS module, the device can be turned off until exact coordinates and elevation are needed. With sporadic use, this allows the 300mAh battery to last for a few days without any issues.
+                The trickiest part of this project was finding a way to get a reliable GPS fix while conserving battery. Initially, I used a very cheap 128x32 pixel screen, which limited me to three lines of text. Ultimately, thanks to the short fix time of the GPS module, the device can simply be left off until exact coordinates and elevation are needed. With sporadic use, this allows the 300mAh battery to last for a few days without any issues.
             </p>
-            
         </div>
 
         <!-- Divider line between content and footer -->
