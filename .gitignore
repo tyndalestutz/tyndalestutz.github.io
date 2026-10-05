@@ -1,0 +1,7 @@
+# Local JavaScript dependencies
+node_modules/
+
+# Playwright test output
+test-results/
+playwright-report/
+blob-report/
